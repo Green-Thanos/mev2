@@ -40,7 +40,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default function Notes({ post }: { post: Post }) {
-  console.log(post);
   return (
     <Layout>
       {post.draft !== true ? (

@@ -31,7 +31,7 @@ module.exports = {
             "a,figcaption": {
               color: theme("colors.neutral.600"),
             },
-            "h2,h3,h4": {
+            "h1,h2,h3,h4": {
               "scroll-margin-top": spacing[32],
             },
           },
@@ -49,7 +49,7 @@ module.exports = {
             figcaption: {
               color: theme("colors.gray.400"),
             },
-            "h2,h3,h4": {
+            "h1,h2,h3,h4": {
               color: theme("colors.gray.200"),
               "scroll-margin-top": spacing[32],
             },
