@@ -1,0 +1,15 @@
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "@casper124578/eslint-config",
+    "@casper124578/eslint-config-react",
+    "@casper124578/eslint-config-next"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}

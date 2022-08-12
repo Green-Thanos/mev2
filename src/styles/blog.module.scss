@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "CascadiaMono";
+  src: url("/fonts/CascadiaMono.woff2");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+.reactMarkdown {
+  margin-top: 1rem;
+
+  > pre {
+    @apply shadow;
+  }
+
+  pre {
+    margin-top: -0.5em;
+
+    font-family: "CascadiaMono", "Courier New", monospace !important;
+    background-color: rgb(36, 44, 56) !important;
+    border-radius: 0.3rem;
+    overflow-x: auto;
+    position: relative;
+    padding: 0.25em 0.5em !important;
+    overflow-y: hidden;
+
+    code {
+      font-family: "CascadiaMono", "Courier New", monospace !important;
+      padding: 0;
+      background: none;
+      font-size: 16px !important;
+    }
+  }
+
+  code {
+    font-family: "CascadiaMono", "Courier New", monospace !important;
+    font-size: 16px !important;
+    @apply rounded-md p-1 px-1.5 font-light;
+
+    &::before,
+    &::after {
+      content: "";
+    }
+  }
+
+  h6,
+  h5,
+  h4,
+  h3,
+  h2,
+  h1 {
+    @apply relative scroll-mt-[4em];
+
+    a {
+      position: absolute;
+      cursor: pointer;
+
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  summary {
+    cursor: pointer;
+    margin-bottom: 0.5em;
+  }
+
+  details[open] {
+    summary {
+      margin-bottom: 1.5em;
+    }
+  }
+}
