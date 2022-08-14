@@ -3,10 +3,14 @@ import { Article } from "src/components/blog/Article";
 import { getItemBySlug, getFiles, formatSlug } from "src/lib/mdx";
 import { Layout } from "src/layouts/layout";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { useRouter } from "next/router";
 import { Post } from "types/Post";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getFiles("posts");
+  // posts.map(p => {
+  //   console.log((p).split("/"));
+  // });
   // for getFiles function, potentially add a include drafts and archived posts feature?
   return {
     paths: posts.map((p) => ({
@@ -19,7 +23,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = (params?.slug as string[]).join("/");
-
   // rss
   //   if (allPosts.length > 0) {
   //     const rss = generateRss(allPosts);
@@ -40,6 +43,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default function Notes({ post }: { post: Post }) {
+
   return (
     <Layout>
       {post.draft !== true ? (

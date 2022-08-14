@@ -1,5 +1,5 @@
 import readingTime from "reading-time";
-import { readdirSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { bundleMDX } from "mdx-bundler";
 import { Post } from "types/Post";
@@ -24,7 +24,7 @@ interface GetAllProps {
   includeArchived?: boolean;
 }
 
-export function getFiles(type: any) {
+export function getFiles(type: any, sub?: any) {
   const prefixPaths = join(process.cwd(), "src", "data", type);
   const files = getAllFilesRecursively(prefixPaths);
   // only want to return blog/path and ignore root, replace is needed to work on Windows
@@ -41,7 +41,36 @@ export async function getAllItems({
   includeArchived = false,
 }: GetAllProps): Promise<Post[]> {
   const typeDir = join(process.cwd(), "src", "data", type);
-  const slugs = getSlugsFromDir(typeDir).filter((v) => /\.mdx?$/.test(v));
+  const slugs = getSlugsFromDir(typeDir).filter((v) => /\.mdx|md?$/.test(v));
+  let posts = await Promise.all(slugs.map(async (slug) => getItemBySlug<Post>(slug, type)));
+  posts = posts.sort((post1, post2) =>
+    new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1,
+  );
+
+  if (!includeArchived) {
+    posts = posts.filter((v) => !v.archived);
+  }
+
+  if (!includeDrafts) {
+    posts = posts.filter((v) => !v.draft);
+  }
+
+  return posts;
+}
+
+// why the fuck cant it read .createdAt
+
+export async function getAllSubItems({
+  type,
+  includeDrafts = false,
+  includeArchived = false,
+}: GetAllProps): Promise<Post[]> {
+  const prefixPaths = join(process.cwd(), "src", "data", type);
+  const files = getAllFilesRecursively(prefixPaths);
+  // only want to return blog/path and ignore root, replace is needed to work on Windows
+  const slugs = files.map((file) => file.slice(prefixPaths.length + 1).replace(/\\/g, "/"));
+  // const typeDir = join(process.cwd(), "src", "data", type, sub);
+  // const slugs = getSlugsFromDir(typeDir).filter((v) => /\.mdx?$/.test(v));
 
   let posts = await Promise.all(slugs.map(async (slug) => getItemBySlug<Post>(slug, type)));
   posts = posts.sort((post1, post2) =>
@@ -62,11 +91,16 @@ export async function getAllItems({
 // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export async function getItemBySlug<T extends Post | null>(slug: string, type: Types): Promise<T> {
   const dir = join(process.cwd(), "src", "data", type);
-  const realSlug = slug.replace(/\.mdx$/, "");
-  const fullPath = join(dir, `${realSlug}.mdx`);
+  let realSlug = slug.replace(/\.mdx|.md$/, "");
+  const mdPath = join(dir, `${realSlug}.md`);
+  const mdxPath = join(dir, `${realSlug}.mdx`);
+
+  const testPath = existsSync(mdPath)
+  ? mdPath
+  : mdxPath;
 
   const { code: content, frontmatter } = await bundleMDX({
-    file: fullPath,
+    file: testPath,
     mdxOptions: (options) => {
       options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
 

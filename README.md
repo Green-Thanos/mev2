@@ -43,4 +43,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Post Types
 - File Server (specifically images and pdfs) for assets
 - Views
-- Built in editor (needs auth)
+- Built in editor (serverside)
+- In [...slug] render subfolder post collection [How to Render These Pages](https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#paths)
