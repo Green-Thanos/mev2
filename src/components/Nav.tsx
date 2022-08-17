@@ -25,14 +25,13 @@ const links = [
     href: "/about",
   },
   {
+    name: "Gallery",
+    href: "/gallery",
+  },
+  {
     name: "Blog",
     href: "/blog",
     types: ["/blog", "/blog/[slug]"],
-  },
-  {
-    name: "Code Snippets",
-    href: "/snippets",
-    types: ["/snippets", "/snippets/[slug]"],
   },
 ];
 

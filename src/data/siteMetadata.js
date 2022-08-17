@@ -1,14 +1,14 @@
 const siteMetadata = {
   title: "Toy Site",
   author: "Hurb",
-  headerTitle: "TailwindBlog",
+  headerTitle: "Blog",
   description: "I really don't know",
   language: "en-us",
   theme: "system", // system, dark or light
   siteUrl: "https://tailwind-nextjs-starter-blog.vercel.app",
-  siteRepo: "https://github.com/timlrx/tailwind-nextjs-starter-blog",
-  siteLogo: "/static/images/logo.png",
-  image: "/static/images/avatar.png",
+  siteRepo: "",
+  siteLogo: "",
+  image: "",
   socialBanner: "/static/images/twitter-card.png",
   email: "address@yoursite.com",
   github: "https://github.com",

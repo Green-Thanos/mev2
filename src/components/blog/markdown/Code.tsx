@@ -32,7 +32,7 @@ export const MDCode = (props: Props) => {
   if (inline || !match) {
     return <code className={className}>{props.children}</code>;
   }
-
+  console.log('hi');
   return (
     <div className="group relative w-full">
       <Button

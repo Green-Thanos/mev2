@@ -2,8 +2,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
+import siteMetadata from "data/siteMetadata";
+import { PageSEO } from "components/SEO";
 
 export default function Home() {
+  <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
   return (
     <div className={styles.container}>
       <Head>

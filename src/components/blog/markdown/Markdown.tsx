@@ -15,6 +15,7 @@ const components = {
   Info,
   Image,
   CommandLine,
+  MDCode,
 };
 
 interface Props {
