@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Img from "types/Img";
+import { Img } from "types/Img";
 import { useState } from 'react';
 
 function cn(...classes: string[]) {
