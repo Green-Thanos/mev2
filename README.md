@@ -40,8 +40,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - SEO (siteMetaData.js)
 - Blog Tags
 - Authors
-- Post Types
-- File Server (specifically images and pdfs) for assets
-- Views
-- Built in editor (serverside)
+- [x] Post Types
+- [x] File Server (specifically images and pdfs) for assets
+
+-- In Development --
+
+- Views w/prisma client
+- Editor
 - In [...slug] render subfolder post collection [How to Render These Pages](https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#paths)
+- (Image Gallery) https://codepen.io/liarleycodie/pen/rNddXmg https://tailwind-elements.com/docs/standard/components/gallery/ https://stackoverflow.com/questions/65460085/open-a-page-in-a-next-js-website-as-an-overlay

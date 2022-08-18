@@ -11,7 +11,7 @@ export default function BlurImage(props: Img) {
 
   return (
     <a href="#" className="group">
-      <div className="flex aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden">
+      <div className="flex bg-gray-200 rounded-lg overflow-hidden">
         <Image
           alt=""
           src={props.imageSrc}

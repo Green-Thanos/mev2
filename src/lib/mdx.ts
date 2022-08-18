@@ -15,7 +15,7 @@ export function getSlugsFromDir(dir: string): string[] {
 }
 
 export type Fields<T> = (keyof T)[];
-type Types = "posts" | "snippets" | "case-studies";
+type Types = "posts" | "notes" | "snippets" | "case-studies";
 
 interface GetAllProps {
   /** the type of item (blog post, snippet, case study) */

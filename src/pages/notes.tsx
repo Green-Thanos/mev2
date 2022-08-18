@@ -1,6 +1,6 @@
 import { ArticlesList } from "src/components/blog/ArticlesList";
 import { Layout } from "src/components/Layout";
-import { getAllItems} from "src/lib/mdx";
+import { getAllItems, getAllSubItems } from "src/lib/mdx";
 import { Post } from "types/Post";
 import { GetStaticProps } from "next";
 import { generateRSSFeed } from "src/lib/rss";
@@ -19,7 +19,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [posts] = await Promise.all([getAllItems({ type: "posts" }), generateRSSFeed()]);
+  const [posts] = await Promise.all([getAllSubItems({ type: "notes" }), generateRSSFeed()]);
   return {
     props: { posts },
   };

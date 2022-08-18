@@ -17,10 +17,6 @@ const links = [
     href: "/#projects",
   },
   {
-    name: "Contact",
-    href: "/#contact",
-  },
-  {
     name: "About",
     href: "/about",
   },
@@ -32,6 +28,11 @@ const links = [
     name: "Blog",
     href: "/blog",
     types: ["/blog", "/blog/[slug]"],
+  },
+  {
+    name: "Notes",
+    href: "/notes",
+    types: ["/notes", "/blog/notes"],
   },
 ];
 
