@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { Post } from "types/Post";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getFiles("notes");
+  const posts = getFiles("posts");
   // for getFiles function, potentially add a include drafts and archived posts feature?
   return {
     paths: posts.map((p) => ({
@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   //     fs.writeFileSync("./public/feed.xml", rss);
   //   }
 
-  const post = await getItemBySlug(slug, "notes");
+  const post = await getItemBySlug(slug, "posts");
 
   if (!post) {
     return {

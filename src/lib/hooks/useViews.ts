@@ -1,7 +1,8 @@
+import { View } from "@prisma/client";
 import { useRouter } from "next/router";
 import * as React from "react";
 
-export async function updateViews(slug: string): Promise<T> {
+export async function updateViews(slug: string): Promise<View | null> {
   try {
     const res = await fetch(`/api/views/${slug}`, { method: "POST", credentials: "omit" });
     const json = await res.json();

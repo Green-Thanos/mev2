@@ -12,7 +12,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
       <div>
         <h2 className="text-2xl font-semibold md:text-3xl">All Posts</h2>
 
-        <ArticlesList articles={posts} type="notes" />
+        <ArticlesList articles={posts} type="blog" />
       </div>
     </Layout>
   );
