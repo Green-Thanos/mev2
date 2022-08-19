@@ -40,8 +40,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - SEO (siteMetaData.js)
 - Blog Tags
 - Authors
-- [x] Post Types
-- [x] File Server (specifically images and pdfs) for assets
+- Sort posts by views(popularity)/tag
+- Keeping the views feature is only acceptable if you make additions
 
 -- In Development --
 
@@ -49,3 +49,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Editor
 - In [...slug] render subfolder post collection [How to Render These Pages](https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#paths)
 - (Image Gallery) https://codepen.io/liarleycodie/pen/rNddXmg https://tailwind-elements.com/docs/standard/components/gallery/ https://stackoverflow.com/questions/65460085/open-a-page-in-a-next-js-website-as-an-overlay
+
+## DONE
+
+- [x] Post Types
+- [x] File Server (specifically images and pdfs) for assets
