@@ -6,6 +6,8 @@ import { Post } from "types/Post";
 import getAllFilesRecursively from "src/lib/utils/file";
 
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -102,10 +104,11 @@ export async function getItemBySlug<T extends Post | null>(slug: string, type: T
   const { code: content, frontmatter } = await bundleMDX({
     file: testPath,
     mdxOptions: (options) => {
-      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm, remarkMath];
 
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
+        rehypeKatex,
         rehypeSlug,
         rehypeCodeTitles,
         rehypeAutolinkHeadings,
