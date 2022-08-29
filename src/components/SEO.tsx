@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import siteMetadata from "../data/siteMetadata";
 import { AuthorFrontMatter } from "types/AuthorFrontMatter";
-import { PostFrontMatter } from "types/PostFrontMatter";
+import { Post } from "types/Post";
 
 interface CommonSEOProps {
   title?: string;
@@ -99,7 +99,7 @@ export const TagSEO = ({ title, description }: PageSEOProps) => {
   );
 };
 
-interface BlogSeoProps extends PostFrontMatter {
+interface BlogSeoProps extends Post {
   authorDetails?: AuthorFrontMatter[];
   url: string;
 }
@@ -107,15 +107,15 @@ interface BlogSeoProps extends PostFrontMatter {
 export const BlogSEO = ({
   authorDetails,
   title,
-  summary,
-  date,
-  lastmod,
+  intro,
+  createdAt,
+  updatedAt,
   url,
   images = [],
   canonicalUrl,
 }: BlogSeoProps) => {
-  const publishedAt = new Date(date).toISOString();
-  const modifiedAt = new Date(lastmod || date).toISOString();
+  const publishedAt = new Date(createdAt).toISOString();
+  const modifiedAt = new Date(updatedAt || createdAt).toISOString();
   const imagesArr =
     images.length === 0
       ? [siteMetadata.socialBanner]
@@ -165,7 +165,7 @@ export const BlogSEO = ({
         url: `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
       },
     },
-    description: summary,
+    description: intro,
   };
 
   const twImageUrl = featuredImages[0].url;
@@ -174,15 +174,15 @@ export const BlogSEO = ({
     <>
       <CommonSEO
         title={title}
-        description={summary}
+        description={intro}
         ogType="article"
         ogImage={featuredImages}
         twImage={twImageUrl}
         canonicalUrl={canonicalUrl}
       />
       <Head>
-        {date && <meta property="article:published_time" content={publishedAt} />}
-        {lastmod && <meta property="article:modified_time" content={modifiedAt} />}
+        {createdAt && <meta property="article:published_time" content={publishedAt} />}
+        {createdAt && <meta property="article:modified_time" content={modifiedAt} />}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

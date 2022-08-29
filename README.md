@@ -46,6 +46,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 -- In Development --
 
 - Views w/prisma client
+- Fix SEO and blog pages
+- Blog padding
 - Editor
 - In [...slug] render subfolder post collection [How to Render These Pages](https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#paths)
 - (Image Gallery) https://codepen.io/liarleycodie/pen/rNddXmg https://tailwind-elements.com/docs/standard/components/gallery/ https://stackoverflow.com/questions/65460085/open-a-page-in-a-next-js-website-as-an-overlay
