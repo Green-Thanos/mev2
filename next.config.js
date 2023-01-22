@@ -69,6 +69,9 @@ module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ["pages", "components", "lib", "layouts", "scripts"],
   },
+  images : {
+    domains: ['images.unsplash.com']
+  },
   async redirects() {
     return [
       {

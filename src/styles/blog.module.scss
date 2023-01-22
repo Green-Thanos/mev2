@@ -64,6 +64,9 @@
       height: 100%;
     }
   }
+  h1:hover {
+    text-decoration: underline;
+  }
 
   summary {
     cursor: pointer;
