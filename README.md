@@ -45,6 +45,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Omit required date and other frontmatter for notes
 - Move notes to a backend with dashboard
 - change font (somethign like https://6502.is-a.dev/)
+- Change the links and put the data in another file instead of hardcoding it in various places (such as the page links in components/Nav)
 
 -- In Development --
 

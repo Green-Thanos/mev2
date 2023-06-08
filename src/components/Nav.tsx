@@ -57,10 +57,18 @@ export function Nav() {
   }
 
   return (
+    <>
+
     <header
       className="sticky top-0 z-50 flex items-center justify-center w-full px-5 h-15 bg-gray-50 dark:bg-blue"
       id="nav"
     >
+      <div className="flex justify-start items-start fixed top-5 left-5">
+        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+          gupagen.sh
+        </button>
+      </div>
+
       <nav className="flex items-center justify-between w-full h-20 max-w-4xl">
         <ul
           className={classNames(
@@ -90,7 +98,7 @@ export function Nav() {
             </IconLink>
           </li>
           <li>
-            <IconLink aria-label="GitHub profile" href="https://github.com/dev-caspertheghost">
+            <IconLink aria-label="GitHub profile" href="https://github.com/Green-Thanos">
               <Github />
             </IconLink>
           </li>
@@ -113,5 +121,6 @@ export function Nav() {
         </button>
       </nav>
     </header>
+    </>
   );
 }
